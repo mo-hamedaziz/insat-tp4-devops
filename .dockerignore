@@ -1,0 +1,22 @@
+# Exclude Terraform files and directories
+infra/
+.terraform/
+*.tfstate
+*.tfstate.*
+*.tfvars
+.terraform.lock.hcl
+
+# Exclude git files
+.git/
+.gitignore
+
+# Exclude IDE and editor files
+.vscode/
+.idea/
+*.swp
+*.swo
+*~
+
+# Exclude README and documentation
+README.md
+*.md
