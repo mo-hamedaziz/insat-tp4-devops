@@ -41,7 +41,7 @@ resource "docker_image" "app_image" {
   name = "tp-web-app:latest"
 
   build {
-    context    = ".." # Parent directory where the Dockerfile is located
+    context    = "../web-app" # Directory where the Dockerfile is located
     dockerfile = "./Dockerfile"
     no_cache   = true
   }
