@@ -43,6 +43,7 @@ resource "docker_image" "app_image" {
   build {
     context    = ".." # Parent directory where the Dockerfile is located
     dockerfile = "./Dockerfile"
+    no_cache   = true
   }
 }
 
