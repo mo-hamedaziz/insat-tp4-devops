@@ -2,9 +2,11 @@ FROM alpine:latest
 
 RUN apk update && \
     apk add nginx && \
-    rm -rf /var/cache/apk/*
+    rm -rf /var/cache/apk/* && \
+    mkdir -p /run/nginx
 
-RUN echo "<h1>Application Deployed via Terraform IaC!</h1>" > /var/www/localhost/htdocs/index.html
+COPY nginx.conf /etc/nginx/http.d/default.conf
+COPY index.html /usr/share/nginx/html/index.html
 
 EXPOSE 80
 
