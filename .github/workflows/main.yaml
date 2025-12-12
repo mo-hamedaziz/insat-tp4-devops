@@ -9,7 +9,7 @@ jobs:
   terraform:
     runs-on: ubuntu-latest
     steps:
-      - name: Checkout du code
+      - name: Checkout code
         uses: actions/checkout@v4
 
       - name: Setup Terraform
@@ -26,3 +26,10 @@ jobs:
       - name: Terraform Apply
         if: success()
         run: terraform -chdir=infra apply -auto-approve
+
+      - name: Show web page
+        if: success()
+        run: curl -s http://localhost:8080
+
+      - name: Terraform Destroy
+        run: terraform -chdir=infra destroy -auto-approve
